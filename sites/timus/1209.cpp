@@ -2,6 +2,20 @@
 
 using namespace std;
 
+bool isPerfectSquare(long long number)
+{
+    long long iVar;
+    float fVar;
+
+    fVar=sqrt((double)number);
+    iVar=fVar;
+
+    if(iVar==fVar)
+        return true;
+    else
+        return false;
+}
+
 int get_digit(long long digit_position)
 {
     /*if(digit_position == 0) return 1;
@@ -12,17 +26,9 @@ int get_digit(long long digit_position)
         else if(digit_count > digit_position) return 0;
     }*/
 
-    double sqr = 8*(digit_position) -7;
-    double sqrt_val = sqrt(sqr);
-    int val = (int)sqrt_val;
-    if(val * val == (int) sqr)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    long long result = 8*(digit_position) -7;
+    if(isPerfectSquare(result)) return 1;
+    return 0;
 }
 int main()
 {
