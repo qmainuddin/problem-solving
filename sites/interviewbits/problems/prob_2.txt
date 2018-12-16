@@ -1,0 +1,39 @@
+Magical Candies  Flag Question
+Snow White loves eating chocolates too much. One day her father bring her N magical candies.
+
+As she loves chocolates only, she decides to go to the shop to exchange magical candies with chocolates.
+
+At the shop, she can either exchange a magical candy with a chocolate by giving X dollars or sell a magical candy for Y dollars.
+
+Initially, she has M dollars.
+
+Your task is to tell her how many chocolates she can get.
+
+Input
+
+First argument is N, number of magical candies.
+Second argument is M, number of dollars she has.
+Third argument is X, dollars needed to excahnge a magical candy with a chocolate.
+Fourth argument is Y, dollars Snow White can get by selling a magical candy.
+Output
+
+Return an Integer, i.e maximum chocolates she can get.
+Constraints
+
+1 <= N, M <= 1e9
+1 <= X, Y <= 1e9
+Example
+
+Input
+    5 10 2 1
+Output
+    5
+Explanation
+    She can use all M dollars to exchange all magical candies
+
+Input
+    3 10 4 2
+Output
+    2
+Explanation:
+    She can get only 2 chocolates either by selling 1 magical candy or by exchanging them with 10 dollars.

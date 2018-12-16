@@ -1,0 +1,23 @@
+Prime Array  Flag Question
+You are given an array of integers A. Now, this array is called 'Prime Array' if there exists no pair of integers in the array whose product is a square number (A number which can be expressed as i*i where i is an integer).
+
+More formally, an array is 'Prime Array' if there exist no 2 indices (i,j) such that i != j and square root of (A[i] * A[j]) is an integer.
+
+For example,
+
+[1, 2, 4] is not a prime array as 1*4 is a square number (2*2).
+[1, 6, 10] is however a prime array as no 2 products are prime.
+Now, the given array A might or might not be 'Prime Array'. You have to transform it to be a 'Prime Array' by performing the least number of operations. In an operation, you can pick an element in the array and increase or decrease it by one (As long as the resulting number is still a positive number). Your function should return the least number of operations needed to transform the array to become a 'Prime Number'.
+
+Constraints:
+
+1 <= Size(A) <= 100
+All elements of A will be in the range [1, 1000000]
+Example :
+
+A : [4, 5, 6]
+Return : 0
+Explanation: This array is already a prime array.
+A : [1, 1, 2]
+Return : 2
+Explanation : [1,2,3] is a prime array.
