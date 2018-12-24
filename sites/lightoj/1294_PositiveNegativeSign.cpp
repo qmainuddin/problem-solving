@@ -13,11 +13,15 @@ int main()
 
     for(int i=1; i<=test; i++)
     {
-        int n,m;
+        ll n,m;
         cin >> n >> m;
         cout << "Case " << i << ": ";
-
-        cout << (ll)((n*m)/2) << endl;
+        if(m==n || n%(2*m) != 0) cout << 0 << endl;
+        else 
+        {
+            ll res = ((n*m)/2);
+            cout << res << endl;
+        }
     }
     return 0;
 }
