@@ -31,7 +31,15 @@ int main()
     while(cin >> a >> b)
     {
         int max = 0;
-        for(ll i=a; i<=b; i++)
+        int l=0, m=0;
+        l = a;
+        m = b;
+        if(a > b)
+        {
+            l = b;
+            m = a;
+        }
+        for(ll i=l; i<=m; i++)
         {
             loCount = 0;
             getValue(i);
