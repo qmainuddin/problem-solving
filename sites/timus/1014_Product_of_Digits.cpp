@@ -1,8 +1,27 @@
-#include<bits/stdc++.h>
+/// Syed Shahriar Manjur (Dip)
+//#pragma warning (disable: 4786)
 
-using namespace std;
-
+#include <sstream>
+#include <queue>
+#include <stack>
+#include <set>
+#include <map>
+#include <cstdio>
+#include <cstdlib>
+#include <cctype>
+#include <complex>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <vector>
 #define REV(i,n) for (i=n;i>=0;i--)
+#include <algorithm>
+#include <bitset>
+#include <list>
+#include <string.h>
+#include <assert.h>
+#include  <time.h>
+using namespace std;
 #define print1(a)    cout<<a<<endl
 #define print2(a,b) cout<<a<<" "<<b<<endl
 #define print3(a,b,c) cout<<a<<" "<<b<<" "<<c<<endl
@@ -12,7 +31,7 @@ using namespace std;
 #define ERR         1e-5
 #define PRE         1e-8
 #define SZ(s)       ((int)s.size())
-#define LL          long long
+#define ll          long long
 #define ISS         istringstream
 #define OSS         ostringstream
 #define VS          vector<string>
@@ -52,12 +71,35 @@ using namespace std;
 //0 based print
 #define debug_array(a,n) for(int i=0;i<n;i++) cerr<<a[i]<<" "; cerr<<endl;
 #define debug_matrix(mat,row,col) for(int i=0;i<row;i++) {for(int j=0;j<col;j++) cerr<<mat[i][j]<<" ";cerr<<endl;}
-#define s 100000
-LL col[s/64+10];
-LL ma;
+
+bool should_return = false;
+
+int pod(ll t, ll m, int i)
+{
+    if(i > 9) should_return = true;
+    if(should_return) return -1;
+    if(m <  10) return t+m;
+    else if(m % i == 0) return pod(((t+i) * 10), m/i, 2);
+    else return pod(t, m, ++i);
+}
 
 int main()
 {
-
-    return 0;
+    ll n;
+    while(cin >> n)
+    {
+        should_return = false;
+        if(n == 0) cout << 10 << endl;
+        else
+        {
+            ll min = pod(0, n, 2);
+            for(int i=3; i<=9; i++)
+            {
+                ll temp = pod(0, n, i);
+                if(min == -1) min = temp;
+                else if(temp < min && temp > -1) min = temp;
+            }
+            cout << min << endl;
+        }
+    }
 }
