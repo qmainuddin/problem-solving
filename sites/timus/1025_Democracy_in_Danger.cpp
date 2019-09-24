@@ -37,7 +37,7 @@ using namespace std;
 #define mem(a,b)    memset(a,b,sizeof(a))
 #define fr(i,a,b)   for(i=a;i<=b;i++)
 #define frn(i,a,b)  for(i=a;i>=b;i--)
-#define fri(a,b)    for(i=a;i<=b;++i)
+#define fri(a,b)    for(i=a;i<=b;i++)
 #define frin(a,b)   for(i=a;i>=b;i--)
 #define frj(a,b)    for(j=a;j<=b;j++)
 #define frjn(a,b)   for(j=a;j>=b;j--)
@@ -83,43 +83,29 @@ typedef vector<ll> vll;
 typedef unsigned long long ull;
 typedef tree <int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> _tree;
 
-
-
-D getLength(D x1, D y1, D x2, D y2)
-{
-    re sqrt(sqr(x2-x1) + sqr(y2-y1));
-}
-
 int main()
 {
-    int n,i;
-    D r, co[101][2];
-
+    int k,i;
+    vi groups;
     freopen("in.txt", "r", stdin);
 
-    cin >> n >> r;
+    cin >> k;
 
-    fri(0, n-1)
+    fri(1, k)
     {
-        cin >> co[i][0] >> co[i][1];
+        int temp;
+        cin >> temp;
+        groups.pb(temp);
     }
 
-    D sum = 0;
+    sorta(groups);
+    ll sum = 0;
 
-    fri(0, n-1)
+    fri(0, (k/2))
     {
-        if(i == n-1)
-        {
-            sum += getLength(co[i][0], co[i][1], co[0][0], co[0][1]);
-        }
-        else
-        {
-            sum += getLength(co[i][0], co[i][1], co[i+1][0], co[i+1][1]);
-        }
+        sum += groups[i]/2+1;
     }
-    sum += r*PI*2;
-
-    printD(2, sum);
-
+    print1(sum);
     re 0;
 }
+
