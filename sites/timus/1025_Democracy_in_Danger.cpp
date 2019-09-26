@@ -63,7 +63,6 @@ using namespace std;
 #define debug_matrix(mat,row,col) for(int i=0;i<row;i++) {for(int j=0;j<col;j++) cerr<<mat[i][j]<<" ";cerr<<endl;}
 
 
-
 template <class T> T abs (T x) { re x > 0 ? x : -x; }
 template <class T> T gcd (T a, T b) { re a ? gcd (b % a, a) : b; }
 template <class T> int sgn (T x) { re x > 0 ? 1 : (x < 0 ? -1 : 0); }
