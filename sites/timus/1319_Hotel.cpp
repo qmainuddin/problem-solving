@@ -86,41 +86,47 @@ int main()
 {
     int n,i,j, matrix[101][101];
 
-    //freopen("in.txt", "r", stdin);
     cin >> n;
-    fri(0, n-1)
+
+    if(n == 1)
     {
-        frj(0, n-1)
-        {
-            cin >> matrix[i][j];
-        }
+        cout << 1 << endl;
+        re 0;
     }
-    
-    cout << matrix[0][0] << " ";
+    int value = 1;
+    matrix[0][n-1] = value;
 
-    if(n==1) re 0;
     i =1, j=0;
-    int iNext = 1, jNext = 0;
+    int iNext = 0, jNext = n-2;
 
-    while (iNext != n-1 || jNext != n-1)
+    while (iNext != n-1 || jNext != 0)
     {
         i=iNext, j=jNext;
-        while (i >= jNext && j<=iNext)
+        while (true)
         {
-            cout << matrix[i--][j++] << " ";
+            matrix[i++][j++] = ++value;
+            if(j==n || i == n) break;
         }
-        if(iNext == n-1)
+        if(i==n)
         {
-            jNext++;
+            iNext++;
+            jNext = 0;
         }
         else
         {
-            iNext++;
-            jNext=0;
+            jNext--;
         }
     }
-    cout << matrix[n-1][n-1] << " ";
+    matrix[n-1][0] = ++value;
     
+    fri(0,n-1)
+    {
+        frj(0, n-1)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     re 0;
 }

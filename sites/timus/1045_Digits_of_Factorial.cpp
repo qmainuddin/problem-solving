@@ -62,7 +62,6 @@ using namespace std;
 #define debug_array(a,n) for(int i=0;i<n;i++) cerr<<a[i]<<" "; cerr<<endl;
 #define debug_matrix(mat,row,col) for(int i=0;i<row;i++) {for(int j=0;j<col;j++) cerr<<mat[i][j]<<" ";cerr<<endl;}
 
-
 template <class T> T abs (T x) { re x > 0 ? x : -x; }
 template <class T> T gcd (T a, T b) { re a ? gcd (b % a, a) : b; }
 template <class T> int sgn (T x) { re x > 0 ? 1 : (x < 0 ? -1 : 0); }
@@ -80,48 +79,32 @@ typedef long long ll;
 typedef pair<ll, ll> pll;
 typedef vector<ll> vll;
 typedef unsigned long long ull;
+typedef vector<ull> vull;
 typedef tree <int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> _tree;
+
+#define MAX 1000000
 
 int main()
 {
-    int n,i,j, matrix[101][101];
+    freopen("in.txt", "r", stdin);
+   ll i;
+   vll factorials;
+   factorials.pb(0);
+   
+   fri(1, MAX)
+   {
+       factorials.pb(factorials[i-1] + log(i));
+   }
+   ll n, b, t;
+   cin >> t;
 
-    //freopen("in.txt", "r", stdin);
-    cin >> n;
-    fri(0, n-1)
-    {
-        frj(0, n-1)
-        {
-            cin >> matrix[i][j];
-        }
-    }
-    
-    cout << matrix[0][0] << " ";
+   fri(1, t)
+   {
+       cin >> n >> b;
+       ll logg = ll (factorials[n]/log(b)) + 1;
+       cout << "Case " << i << ": " << logg << endl;
+   }
 
-    if(n==1) re 0;
-    i =1, j=0;
-    int iNext = 1, jNext = 0;
-
-    while (iNext != n-1 || jNext != n-1)
-    {
-        i=iNext, j=jNext;
-        while (i >= jNext && j<=iNext)
-        {
-            cout << matrix[i--][j++] << " ";
-        }
-        if(iNext == n-1)
-        {
-            jNext++;
-        }
-        else
-        {
-            iNext++;
-            jNext=0;
-        }
-    }
-    cout << matrix[n-1][n-1] << " ";
-    
-
-    re 0;
+   re 0;
 }
 
