@@ -80,6 +80,7 @@ typedef pair<ll, ll> pll;
 typedef vector<ll> vll;
 typedef unsigned long long ull;
 typedef vector<ull> vull;
+typedef vector<double> vd;
 typedef tree <int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> _tree;
 
 #define MAX 1000000
@@ -88,7 +89,7 @@ int main()
 {
     freopen("in.txt", "r", stdin);
    ll i;
-   vll factorials;
+   vd factorials;
    factorials.pb(0);
    
    fri(1, MAX)
@@ -101,7 +102,7 @@ int main()
    fri(1, t)
    {
        cin >> n >> b;
-       ll logg = ll (factorials[n]/log(b)) + 1;
+       ll logg = (factorials[n]/log(b)) + 1;
        cout << "Case " << i << ": " << logg << endl;
    }
 
