@@ -106,46 +106,73 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 #define MAX 1000
 
+string split(string s, string delimiter)
+{
+    return s.substr(s.find(delimiter)+1, s.size());
+}
+
 int main()
 {
-    freopen("in.txt", "r", stdin);
+    // freopen("in.txt", "r", stdin);
+    // freopen("out.txt", "w", stdout);
 
-    int arr[MAX+1], i,j;
+    int t,i;
 
-    mem(arr, 0);
-    int max_val = 0;
-    fri(1, MAX)
-    {
-        ++arr[i];
-        for(int j = i+i; j<=MAX; j+=i)
-        {
-            ++arr[j];
-        }
-        if(max_val < arr[i])
-        {
-            max_val = arr[i];
-        }
-    }
-    int brr[MAX+1], k=2;
-    brr[1] = 1;
-    fri(2, max_val)
-    {
-        frjn(MAX, 1)
-        {
-            if(arr[j] == i)
-            {
-                brr[k++] = j;
-            }
-        }
-    }
-    int t, n;
     cin >> t;
+    string garbase;
+    getline(cin, garbase);
 
     fri(1, t)
     {
-        cin >> n;
+        cout << "Case " << i << ":" << endl;
+        stack<string> backward, forward;
+        string command;
+        string currentURL = "http://www.lightoj.com/";
 
-        cout << "Case " << i << ": " << brr[n] << endl;
+        while (true)
+        {
+            getline(cin, command);
+            if(command.find("QUIT") != string::npos)
+            {
+                break;
+            }
+            else if(command.find("BACK") != string::npos)
+            {
+                 if(backward.empty())
+                 {
+                     cout << "Ignored" << endl;
+                     continue;
+                 }
+                 else
+                 {
+                     forward.push(currentURL);
+                     currentURL = backward.top();
+                     backward.pop();
+                 }
+                 
+            }
+            else if(command.find("FORWARD") != string::npos)
+            {
+                 if(forward.empty())
+                 {
+                     cout << "Ignored" << endl;
+                     continue;
+                 }
+                 else
+                 {
+                     backward.push(currentURL);
+                     currentURL = forward.top();
+                     forward.pop();
+                 }
+            }
+            else
+            {
+                backward.push(currentURL);
+                currentURL = split(command, " ");
+                forward = stack<string>();
+            }
+            cout << currentURL << endl;
+        }
     }
     
     re 0;
