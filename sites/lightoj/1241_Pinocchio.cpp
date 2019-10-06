@@ -19,6 +19,7 @@ using namespace std;
 #define fo(i, n) for (int i = 0; i < n; ++i)
 #define ro(i, n) for (int i = n - 1; i >= 0; --i)
 #define unique(v) v.resize(unique(all(v)) - v.begin())
+#define readInt(a) scanf("%d", &a);
 #define print1(a) cout << a << endl
 #define print2(a, b) cout << a << " " << b << endl
 #define print3(a, b, c) cout << a << " " << b << " " << c << endl
@@ -109,37 +110,46 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 int main()
 {
-    // freopen("in.txt", "r", stdin);
-    // freopen("out.txt", "w", stdout);
+    int t,i,j;
 
-    int t,i;
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
     
-    cin >> t;
+    readInt(t);
 
     fri(1, t)
     {
-        string a;
-        ll b;
-        cin >> a >> b;
-        
-        int j = 0;
-        if(b < 0) b *= -1;
-        if(a[0] == '-')
+        int n, arr[11], sum=0;
+        readInt(n);
+
+        frj(0, n-1)
         {
-            j = 1;
+            readInt(arr[j]);
         }
-        int len = a.size();
-        ll q = 0;
-        
-        for(; j<len; j++)
+        if(arr[0]>2)
         {
-            ll d = a[j]-'0';
-            d = q * 10 + d;
-            q = d%b;
+            if(arr[0] - 2 > 5)
+            {
+                if((arr[0]-2)%5 == 0) sum += (arr[0] - 2)/5;
+                else sum += ((arr[0] - 2)/5)+1;
+                
+            }
+            else sum++;
         }
-        cout << "Case " << i;
-        if(q == 0) cout << ": divisible" << endl;
-        else cout << ": not divisible" << endl;
+        frj(1, n-1)
+        {
+            
+            if(arr[j] - arr[j-1] > 0)
+            {
+                if(arr[j] - arr[j-1] > 5) 
+                {
+                    if((arr[j] - arr[j-1])%5 == 0) sum += (arr[j] - arr[j-1])/5;
+                    else sum += ((arr[j] - arr[j-1])/5)+1;
+                }
+                else sum++;
+            }
+        }
+        printf("Case %d: %d\n", i, sum);
     }
     re 0;
 }

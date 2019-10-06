@@ -19,6 +19,7 @@ using namespace std;
 #define fo(i, n) for (int i = 0; i < n; ++i)
 #define ro(i, n) for (int i = n - 1; i >= 0; --i)
 #define unique(v) v.resize(unique(all(v)) - v.begin())
+#define readInt(a) scanf("%d", &a);
 #define print1(a) cout << a << endl
 #define print2(a, b) cout << a << " " << b << endl
 #define print3(a, b, c) cout << a << " " << b << " " << c << endl
@@ -109,37 +110,35 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 int main()
 {
-    // freopen("in.txt", "r", stdin);
-    // freopen("out.txt", "w", stdout);
-
     int t,i;
+
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
     
-    cin >> t;
+    readInt(t);
 
     fri(1, t)
     {
-        string a;
-        ll b;
-        cin >> a >> b;
-        
-        int j = 0;
-        if(b < 0) b *= -1;
-        if(a[0] == '-')
+        char a[10];
+        mem(a, '\0');
+        scanf("%s", a);
+        getchar();
+        int len = strlen(a);
+        bool isPal = true;
+        if(len == 1) isPal = true;
+        else
         {
-            j = 1;
+            for(int j = 0, k=len-1; j < len/2; j++, k--)
+            {
+                if(a[j] != a[k])
+                {
+                    isPal = false;
+                    break;
+                }
+            }
         }
-        int len = a.size();
-        ll q = 0;
-        
-        for(; j<len; j++)
-        {
-            ll d = a[j]-'0';
-            d = q * 10 + d;
-            q = d%b;
-        }
-        cout << "Case " << i;
-        if(q == 0) cout << ": divisible" << endl;
-        else cout << ": not divisible" << endl;
+        if(isPal) printf("Case %d: Yes\n", i);
+        else printf("Case %d: No\n", i);  
     }
     re 0;
 }
