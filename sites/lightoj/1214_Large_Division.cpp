@@ -108,12 +108,12 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define MAX 100
 
 
-int parseInt(string value)
+ll parseInt(string value)
 {
-    int i;
-    int len = value.size();
-    int num = 0;
-    int mul = 1;
+    ll i;
+    ll len = value.size();
+    ll num = 0;
+    ll mul = 1;
 
     fri(0, len-1)
     {
@@ -141,7 +141,7 @@ int main()
         int startIndex = 0;
         if(b < 0) b *= -1;
 
-        // cout << "A: " << a.size() << " b: " << b << endl;
+        //cout << "A size: " << a.size() << " b: " << b << endl;
         if(a[0] == '-')
         {
             startIndex = 1;
@@ -150,23 +150,25 @@ int main()
         int len = a.size();
         int q = 0;
         int rank = 1;
-        // cout << "Start Index : " << startIndex << endl;
-        // cout << "Digits : " << digits << endl;
-        for(int j = startIndex; j+digits<len;)
+        //cout << "Start Index : " << startIndex << endl;
+        //cout << "Digits : " << digits << endl;
+        for(int j = startIndex; j+digits<=len;)
         {
-            int d = parseInt(a.substr(j, digits));
-            cout << "rank# " << rank++ << ", d= " << d << ", j= " << j << ", digit= " << digits << endl;
-            d = q * ((int) pow(10, ((int) ceil(log10(d))))) + d;
+            ll d = parseInt(a.substr(j, digits));
+            //cout << "rank# " << rank << ", d= " << d << ", b = " << b << ", j= " << j << ", digit= " << digits << endl;
+
+            d = q * ((ll) pow(10, digits)) + d;
             if(d < b)
             {
                 digits++;
                 continue;
             }
             q = d%b;
+            //cout << "rank: " << rank << ", q: " << q << endl;
             if(q == 0)
             {
                 j += digits;
-                digits = ceil(log(b));
+                digits = ceil(log10(b));
                 continue;
             }
             else
@@ -174,8 +176,9 @@ int main()
                 j += digits;
                 digits = 1;
             }
+            rank++;
         }
-        cout << "Case " << t;
+        cout << "Case " << i;
         if(q == 0) cout << ": divisible" << endl;
         else cout << ": not divisible" << endl;
     }
