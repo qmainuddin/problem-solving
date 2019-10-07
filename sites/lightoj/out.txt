@@ -1,13 +1,9 @@
-Case 1: 2
-Case 2: 2
-Case 3: 4
-Case 4: 6
-Case 5: 0
-Case 6: 2
-Case 7: 1
-Case 8: 2
-Case 9: 2
-Case 10: 3
-Case 11: 15
-Case 12: 0
-Case 13: 10
+Case 1: c took chocolate from b
+Case 2: no thief
+Case 3: d took chocolate from c
+Case 4: alice took chocolate from connie
+Case 5: no thief
+Case 6: a took chocolate from b
+Case 7: z took chocolate from x
+Case 8: no thief
+Case 9: e took chocolate from c
