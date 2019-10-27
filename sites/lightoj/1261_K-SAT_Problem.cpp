@@ -109,11 +109,12 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define NOTHING 3
 #define ACCEPT 1
 #define REJECT 2
+#define BOTH 4
 
 int main()
 {
-    // freopen("in.txt", "r", stdin);
-    // freopen("out.txt", "w", stdout);
+     freopen("in.txt", "r", stdin);
+     freopen("out.txt", "w", stdout);
 
     int t,i, j, psc[32][32];
     
@@ -123,22 +124,67 @@ int main()
     {
         int n,m,k;
         cin >> n >> m >> k;
-        mem(psc, NOTHING);
+        frj(0, 31)
+        {
+            for(int p =0; p<32; p++)
+            {
+                psc[j][p] = NOTHING;
+            }
+        }
         frj(1, n)
         {
-            for (int p = 1; p <= k; p++)
+            for (int s = 1; s <= k; s++)
             {
                 int temp;
                 cin >> temp;
-                if(temp < 0) psc[j][abs(temp)] = REJECT;
+                if(temp < 0)
+                {
+                    if(psc[j][abs(temp)] == ACCEPT) psc[j][abs(temp)] = BOTH;
+                    else psc[j][abs(temp)] = REJECT;
+                }
                 else
                 {
-                    psc[j][temp] = ACCEPT;
+                    if(psc[j][temp] == REJECT) psc[j][temp] = BOTH;
+                    else psc[j][temp] = ACCEPT;
                 }
-                
             }
-            
         }
+        int takenList[32];
+        for(int s =0; s<32; s++)
+        {
+            takenList[s] = REJECT;
+        }
+        int p;
+        cin >> p;
+        frj(1, p) 
+        {
+            int temp ;
+            cin >> temp;
+            takenList[temp] = ACCEPT;
+        }
+        bool yes = true;
+        frj(1, n)
+        {
+            bool choice = false;
+            for(int s=1; s<=m; s++)
+            {
+                if(psc[j][s] == takenList[s])
+                {
+                    choice = true;
+                    break;
+                }
+                if(psc[j][s] == BOTH)
+                {
+                    choice = true;
+                    break;
+                }
+            }
+            yes = yes & choice;
+        }
+        cout << "Case " << i << ": ";
+        if(yes) cout << "Yes" << endl;
+        else cout << "No" << endl;
+        
     }
     re 0;
 }

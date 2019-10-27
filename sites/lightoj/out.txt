@@ -1,9 +1,2 @@
-Case 1: c took chocolate from b
-Case 2: no thief
-Case 3: d took chocolate from c
-Case 4: alice took chocolate from connie
-Case 5: no thief
-Case 6: a took chocolate from b
-Case 7: z took chocolate from x
-Case 8: no thief
-Case 9: e took chocolate from c
+Case 1: No
+Case 2: Yes
