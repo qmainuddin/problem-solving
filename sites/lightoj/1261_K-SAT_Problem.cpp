@@ -106,13 +106,16 @@ typedef vector<double> vd;
 typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> _tree;
 
 #define MAX 100
+#define NOTHING 3
+#define ACCEPT 1
+#define REJECT 2
 
 int main()
 {
     // freopen("in.txt", "r", stdin);
     // freopen("out.txt", "w", stdout);
 
-    int t,i, j;
+    int t,i, j, psc[32][32];
     
     cin >> t;
 
@@ -120,12 +123,21 @@ int main()
     {
         int n,m,k;
         cin >> n >> m >> k;
-        frj(0, n-1)
+        mem(psc, NOTHING);
+        frj(1, n)
         {
-            int a;
-            cin >> a;
-
-            cout << a << endl;
+            for (int p = 1; p <= k; p++)
+            {
+                int temp;
+                cin >> temp;
+                if(temp < 0) psc[j][abs(temp)] = REJECT;
+                else
+                {
+                    psc[j][temp] = ACCEPT;
+                }
+                
+            }
+            
         }
     }
     re 0;
