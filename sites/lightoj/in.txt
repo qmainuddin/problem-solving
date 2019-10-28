@@ -1,9 +1,27 @@
-2
-3 4 3
--1 -4 -4
-+4 +4 +3
--1 -3 +3
-0
-1 30 2
--1 +20
-0
+13
+bafC  jyVRaCjEswFggAIvuK iSlNPJtDERGeFY BQlFhbLYBnQDxEdspdRNlFQuUu nDQqpYdDPxXQhHvHXLvDVhvld
+IDDnRVKQnryx UCqSbPjnVhgheGgNAcwSfiXqThSrDvDpyvAJbQJXBVVfe QLaEbhQhxyFEDpyuPdlDFudufLLdll
+aaazzz
+aaaaaa
+lKmS yDIHoqb  UlkF
+USF
+zzzzzz
+zaaaaa
+  
+abc
+ABC
+DEF
+Y
+L
+g LxnapwaFTZ oRobQicumscFff
+zcBXaUcQtGlMIAsfPonoFWFfR
+g LxnapwaFTZ oRobQicumscFff
+zcBXaUcQtGlMIAsfPonoFWFfR
+a
+abcdefg
+William Shakespeare
+I am a weakish speller
+Madam Curie
+Radium came
+Ave Maria, gratia plena, Dominus tecum
+Virgo serena, pia, munda et immaculata
